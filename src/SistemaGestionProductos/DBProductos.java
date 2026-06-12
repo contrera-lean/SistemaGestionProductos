@@ -2,6 +2,7 @@ package SistemaGestionProductos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,16 +26,12 @@ public class DBProductos {
     }
     
     public void create(Producto p) throws SQLException {
-        
-        Statement statement = connection.createStatement();
-        
-        String codigo = String.valueOf(p.getCodigo());
-        String descripcion = String.valueOf(p.getDescripcion());
-        String precioCosto = String.valueOf(p.getPrecioCosto());
-                
-        statement.execute("INSERT INTO products VALUES (" + codigo + ",'" 
-                + descripcion + "'," 
-                + precioCosto + ");");
+        String sql = "INSERT INTO products (id, description, cost) VALUES (?,?.?)";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, p.getCodigo());
+        statement.setString(2, p.getDescripcion());
+        statement.setDouble(2, p.getPrecioCosto());
+        statement.executeUpdate();
     }
     
     public Producto read(int id) {
