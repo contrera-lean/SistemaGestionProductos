@@ -1,7 +1,9 @@
-package javaapplication3.ui;
+package views;
 
-import javaapplication3.*;
-import javaapplication3.ui.model.TableModelProducto;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import views.model.TableModelProducto;
 
 public class VentanaAgregarProducto extends javax.swing.JFrame {
     
@@ -116,11 +118,15 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int codigo = Integer.parseInt(jTextField1.getText());
+        int id_codigo = Integer.parseInt(jTextField1.getText());
         String descripcion = jTextField2.getText();
         double costo = Double.parseDouble(jTextField3.getText());
         
-        modelProductos.addRow(codigo, descripcion, costo);
+        try {
+            modelProductos.addRow(id_codigo, descripcion, costo);
+        } catch (SQLException ex) {
+            Logger.getLogger(VentanaAgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
+        }
         modelProductos.fireTableDataChanged();
         
         this.setVisible(false);

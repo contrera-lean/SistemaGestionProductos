@@ -1,11 +1,9 @@
-package javaapplication3;
+package SistemaGestionProductos;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import javaapplication3.ui.model.TableModelProducto;
-import javaapplication3.ui.ventanaSistemaTienda;
+import views.model.TableModelProducto;
+import views.ventanaSistemaTienda;
 
-public class JavaApplication3 {
+public class SistemaGestionProductos {
    
     public static void main(String[] args) {
         

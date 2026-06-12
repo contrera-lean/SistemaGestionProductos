@@ -1,12 +1,6 @@
-package javaapplication3.ui;
+package views;
 
-import java.util.HashSet;
-import java.util.Set;
-import javaapplication3.ListaProductos;
-import javaapplication3.Producto;
-import javaapplication3.ui.model.TableModelProducto;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableModel;
+import views.model.TableModelProducto;
 
 public class ventanaSistemaTienda extends javax.swing.JFrame {
     

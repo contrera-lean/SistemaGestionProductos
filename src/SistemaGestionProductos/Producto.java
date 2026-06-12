@@ -1,4 +1,4 @@
-package javaapplication3;
+package SistemaGestionProductos;
 
 public class Producto {
     
